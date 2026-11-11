@@ -1,0 +1,13 @@
+# Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/).
+# Every other address gets 404.html, with status 404.
+# 302 rather than 301: browsers keep a 301 indefinitely, and the current docs
+# may move to this host later.
+/ https://amplicon-docs.qiime2.org/ 302
+/en/* https://amplicon-docs.qiime2.org/en/:splat 302
+
+# Data files that the Moving Pictures tutorial downloads while it builds, sent
+# to their copies in the old-docs Zenodo record (10.5281/zenodo.24082639), so
+# the tutorial and rebuilds of its old versions need no change. These work once
+# the record is published; check that its record id is 24082639.
+/2024.10/data/tutorials/feature-classifier/85_otus.qza https://zenodo.org/api/records/24082639/files/85_otus.qza/content 302
+/2024.10/data/tutorials/feature-classifier/ref-taxonomy.qza https://zenodo.org/api/records/24082639/files/ref-taxonomy.qza/content 302
