@@ -11,7 +11,7 @@ The site holds one page, [`site/404.html`](site/404.html), which Cloudflare Page
 | --- | --- |
 | `/` | 302 to https://amplicon-docs.qiime2.org/ |
 | `/en/...` | 302 to the same path on amplicon-docs.qiime2.org |
-| The two data files the Moving Pictures tutorial downloads (`/2024.10/data/tutorials/feature-classifier/85_otus.qza` and `ref-taxonomy.qza`) | 302 to their copies in the Zenodo record |
+| Three data files that current docs download: the Moving Pictures tutorial's `/2024.10/data/tutorials/feature-classifier/85_otus.qza` and `ref-taxonomy.qza`, and `/2020.11/data/tutorials/moving-pictures/rep-seqs.qza` from amplicon-docs' archives page in its 2026.10 release | 302 to their copies in the Zenodo record |
 | `/2024.10/...` | 404 page with the link to that page's archive.org copy |
 | `/<older version>/...` | 404 page with archive.org's copies of that page, the same page in 2024.10 on archive.org, and the Zenodo archive, in that order |
 | `/<version>/data/...` | 404 page pointing to the Zenodo archive only |
@@ -35,7 +35,7 @@ Each of these should show the response in the table above.
 | Page in an older release | https://old-docs-404.pages.dev/2019.1/tutorials/moving-pictures/ |
 | Oldest release | https://old-docs-404.pages.dev/2.0.6/ |
 | Tutorial data file | https://old-docs-404.pages.dev/2024.10/data/tutorials/moving-pictures/table.qza |
-| Moving Pictures data file (works once the Zenodo record is published) | https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza |
+| Data file that current docs download (works once the Zenodo record is published) | https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza |
 | Anything else | https://old-docs-404.pages.dev/no-such-page/ |
 
 To check status codes and redirect targets instead:
@@ -46,6 +46,7 @@ for u in \
   https://old-docs-404.pages.dev/en/stable/ \
   https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza \
   https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/ref-taxonomy.qza \
+  https://old-docs-404.pages.dev/2020.11/data/tutorials/moving-pictures/rep-seqs.qza \
   https://old-docs-404.pages.dev/2024.10/plugins/available/diversity/core-metrics/ \
   https://old-docs-404.pages.dev/2017.2/ \
   https://old-docs-404.pages.dev/2024.10/data/tutorials/moving-pictures/table.qza \
@@ -54,7 +55,7 @@ for u in \
 done
 ```
 
-Expected: the first four answer 302 (two to amplicon-docs.qiime2.org, two to zenodo.org), and the rest 404.
+Expected: the first five answer 302 (two to amplicon-docs.qiime2.org, three to zenodo.org), and the rest 404.
 For a pull request, replace the host with its preview address; after the cutover, with docs.qiime2.org.
 
 ## Deployment
@@ -67,7 +68,7 @@ From the cutover on, `docs.qiime2.org` is a custom domain of the project.
 
 - `ARCHIVE_DATE` in the page's script is the day by which every 2024.10 page had a fresh archive.org capture.
   Links ask archive.org for the capture nearest that date, so the old documentation must go offline at least a week after it; otherwise archive.org's captures of this 404 page could be nearer.
-- The Zenodo DOI, 10.5281/zenodo.24082639, appears twice in the page, and the record id (24082639) in the two data-file redirects.
+- The Zenodo DOI, 10.5281/zenodo.24082639, appears twice in the page, and the record id (24082639) in the three data-file redirects.
   Both work only once the record is published; check that the record id matches then.
 
 ## History

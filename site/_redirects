@@ -5,9 +5,12 @@
 / https://amplicon-docs.qiime2.org/ 302
 /en/* https://amplicon-docs.qiime2.org/en/:splat 302
 
-# Data files that the Moving Pictures tutorial downloads while it builds, sent
-# to their copies in the old-docs Zenodo record (10.5281/zenodo.24082639), so
-# the tutorial and rebuilds of its old versions need no change. These work once
-# the record is published; check that its record id is 24082639.
+# Data files that current docs download, sent to their copies in the old-docs
+# Zenodo record (10.5281/zenodo.24082639), so those docs need no change: the
+# Moving Pictures tutorial fetches the first two while it builds (and rebuilds of
+# its old versions do too), and amplicon-docs' page on archives in its 2026.10
+# release has readers `curl -L` the third. These work once the record is
+# published; check that its record id is 24082639.
 /2024.10/data/tutorials/feature-classifier/85_otus.qza https://zenodo.org/api/records/24082639/files/85_otus.qza/content 302
 /2024.10/data/tutorials/feature-classifier/ref-taxonomy.qza https://zenodo.org/api/records/24082639/files/ref-taxonomy.qza/content 302
+/2020.11/data/tutorials/moving-pictures/rep-seqs.qza https://zenodo.org/api/records/24082639/files/rep-seqs.qza/content 302
