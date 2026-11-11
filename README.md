@@ -29,27 +29,27 @@ Each of these should show the response in the table above.
 
 | Case | Link |
 | --- | --- |
-| Root | https://qiime2-old-docs-404.pages.dev/ |
-| Current-docs address | https://qiime2-old-docs-404.pages.dev/en/stable/ |
-| Page in 2024.10, the last release | https://qiime2-old-docs-404.pages.dev/2024.10/plugins/available/diversity/core-metrics/ |
-| Page in an older release | https://qiime2-old-docs-404.pages.dev/2019.1/tutorials/moving-pictures/ |
-| Oldest release | https://qiime2-old-docs-404.pages.dev/2.0.6/ |
-| Tutorial data file | https://qiime2-old-docs-404.pages.dev/2024.10/data/tutorials/moving-pictures/table.qza |
-| Moving Pictures data file (works once the Zenodo record is published) | https://qiime2-old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza |
-| Anything else | https://qiime2-old-docs-404.pages.dev/no-such-page/ |
+| Root | https://old-docs-404.pages.dev/ |
+| Current-docs address | https://old-docs-404.pages.dev/en/stable/ |
+| Page in 2024.10, the last release | https://old-docs-404.pages.dev/2024.10/plugins/available/diversity/core-metrics/ |
+| Page in an older release | https://old-docs-404.pages.dev/2019.1/tutorials/moving-pictures/ |
+| Oldest release | https://old-docs-404.pages.dev/2.0.6/ |
+| Tutorial data file | https://old-docs-404.pages.dev/2024.10/data/tutorials/moving-pictures/table.qza |
+| Moving Pictures data file (works once the Zenodo record is published) | https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza |
+| Anything else | https://old-docs-404.pages.dev/no-such-page/ |
 
 To check status codes and redirect targets instead:
 
 ```
 for u in \
-  https://qiime2-old-docs-404.pages.dev/ \
-  https://qiime2-old-docs-404.pages.dev/en/stable/ \
-  https://qiime2-old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza \
-  https://qiime2-old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/ref-taxonomy.qza \
-  https://qiime2-old-docs-404.pages.dev/2024.10/plugins/available/diversity/core-metrics/ \
-  https://qiime2-old-docs-404.pages.dev/2017.2/ \
-  https://qiime2-old-docs-404.pages.dev/2024.10/data/tutorials/moving-pictures/table.qza \
-  https://qiime2-old-docs-404.pages.dev/no-such-page/ ; do
+  https://old-docs-404.pages.dev/ \
+  https://old-docs-404.pages.dev/en/stable/ \
+  https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/85_otus.qza \
+  https://old-docs-404.pages.dev/2024.10/data/tutorials/feature-classifier/ref-taxonomy.qza \
+  https://old-docs-404.pages.dev/2024.10/plugins/available/diversity/core-metrics/ \
+  https://old-docs-404.pages.dev/2017.2/ \
+  https://old-docs-404.pages.dev/2024.10/data/tutorials/moving-pictures/table.qza \
+  https://old-docs-404.pages.dev/no-such-page/ ; do
   printf '%s\n  ' "$u"; curl -s -o /dev/null -w '%{http_code} %{redirect_url}\n' "$u"
 done
 ```
@@ -59,7 +59,7 @@ For a pull request, replace the host with its preview address; after the cutover
 
 ## Deployment
 
-The Cloudflare Pages project `qiime2-old-docs-404` (https://qiime2-old-docs-404.pages.dev), in the Cloudflare account that holds the qiime2.org zone, is connected to this repository, with no build command and `site` as the build output directory.
+The Cloudflare Pages project `old-docs-404` (https://old-docs-404.pages.dev), in the Cloudflare account that holds the qiime2.org zone, is connected to this repository, with no build command and `site` as the build output directory.
 Each push to `main` deploys within a minute or two, and each pull request gets its own preview address.
 From the cutover on, `docs.qiime2.org` is a custom domain of the project.
 
